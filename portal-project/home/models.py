@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+class News(models.Model):
+    text_field = models.CharField(max_length=250)
+    image_field = models.ImageField()

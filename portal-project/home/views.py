@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import News
 
 def home(request):
-	return render(request, 'home/index.html')
+	news = News.objects.all()
+	return render(request, 'home/index.html', {'news': news})

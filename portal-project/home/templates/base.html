@@ -12,16 +12,16 @@
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-        	          <img src="{% static "images/kazna.png" %}" alt="Stones along the river" >
+        	          <img src="{% static "media/kazna.png" %}" alt="Stones along the river" >
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">Главная</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Мониторинг</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Электронный бюджет</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Янтарь</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Инструкции</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">О портале</a></li>
+          <li><a href="#" class="nav-link px-2 text-white"><strong>Главная</strong></a></li>
+          <li><a href="#" class="nav-link px-2 text-white"><strong>Мониторинг</strong></a></li>
+          <li><a href="#" class="nav-link px-2 text-white"><strong>Электронный бюджет</strong></a></li>
+          <li><a href="#" class="nav-link px-2 text-white"><strong>Янтарь</strong></a></li>
+          <li><a href="#" class="nav-link px-2 text-white"><strong>Инструкции</strong></a></li>
+          <li><a href="#" class="nav-link px-2 text-white"><strong>О портале</strong></a></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -29,13 +29,18 @@
         </form>
 
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Войти</button>
+          <button type="button" class="btn btn-outline-light me-2"><strong>Войти</strong></button>
         </div>
       </div>
     </div>
   </header>
 	{% block content %}
 	{% endblock %}
+<footer class="footer mt-auto py-3 bg-dark text-white">
+  <div class="container">
+    <span class="text-muted">Авторы: Новиков М., Чулкин Д., Шилкин Ю.</span>
+  </div>
+</footer>
 </body>
 </html>
 
