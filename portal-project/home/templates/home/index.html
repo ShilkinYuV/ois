@@ -9,15 +9,15 @@
         <button class="btn btn-primary btn-lg" type="button">Подробнее..</button>
       </div>
     </div>
-<div class="container fixed-bottom">
+<div class="container py-5">
      <div class="row mx-auto my-5">
     {% for el in news %}
-        <div class="col-sm p-2">
+        <div class="col">
             <a href="#">
-                <div class="col">
+                <div class="col mx-auto col-md-10 my-3">
                     <img src="{{el.image_field.url}}" class="w-100 h-100">
                 </div>
-                <p class="text-white">{{el.text_field}}</p>
+                <p class="col mx-auto col-md-10 my-3 text-white">{{el.text_field}}</p>
             </a>
         </div>
     {% endfor %}
@@ -25,3 +25,4 @@
 </div>
 
 {% endblock %}
+
