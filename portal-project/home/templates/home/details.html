@@ -5,7 +5,9 @@
 <br>
 <br>
 {% for el in det %}
-<img src="{{el.image_field.url}}" class="rounded mx-auto d-block w-50 h-50">
-<p class="rounded mx-auto d-block w-50 h-50">{{el.text_field}}</p>
+<div class="container" style="margin-bottom: 200px">
+    <img src="{{el.image_field.url}}" class="rounded mx-auto d-block w-50 h-50">
+<p class="rounded mx-auto md-5 d-block w-50 h-50" style="font-size: 18pt;">{{el.text_field}}</p>
+</div>
 {% endfor %}
 {% endblock %}
