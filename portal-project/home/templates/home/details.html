@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+{% for el in det %}
+<img src="{{el.image_field.url}}" class="rounded mx-auto d-block w-50 h-50">
+<p class="rounded mx-auto d-block w-50 h-50">{{el.text_field}}</p>
+{% endfor %}
+{% endblock %}
