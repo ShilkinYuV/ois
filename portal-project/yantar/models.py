@@ -14,3 +14,15 @@ class Certificatestore(models.Model):
     class Meta:
         managed = False
         db_table = 'CertificateStore'
+
+
+class Adminyantar(models.Model):
+    fio = models.TextField(blank=True, null=True)
+    mail = models.TextField(blank=True, null=True)
+    role = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'AdminYantar'
+
+        
