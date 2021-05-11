@@ -1,4 +1,5 @@
 body{
 	background-color: #417690;
-	background: url("/static/media/fon.jpg") 50% 0 no-repeat fixed;
+	background: url("/static/media/fon.jpg") no-repeat;
+	background-size: 100%;
 }
