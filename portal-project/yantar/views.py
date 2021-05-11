@@ -29,4 +29,4 @@ def details(request, id):
         certres = Certificatestore.objects.get(pk=id)
     except Certificatestore.DoesNotExist:
         raise Http404("Certificate does not exist")
-    return render(request, 'readcert/details.html', {'certres': certres})
+    return render(request, 'yantar/details.html', {'certres': certres})
