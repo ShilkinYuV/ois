@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-            <div class="pt-5">
+            <div class="pt-1">
                 <form method="post">
                     {% csrf_token %}
                         {% for adm in admin %}
-                    <button type="submit" class="btn btn-success btn-sm mb-2 mt-5" name="{{ adm.role }}" value="{{ adm.fio }}">{{ adm.fio }}</button>
+                    <button type="submit" class="btn btn-success btn-sm mb-2" name="{{ adm.role }}" value="{{ adm.fio }}">{{ adm.fio }}</button>
                         {% endfor %}
                 </form>
             </div>
