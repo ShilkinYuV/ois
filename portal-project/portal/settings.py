@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'yantar.apps.YantarConfig',
+    'elbudget.apps.ElbudgetConfig'
 ]
 
 MIDDLEWARE = [
@@ -80,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'P@ssw0rd',
+        'PASSWORD': '8916Mixa',
         'HOST': 'localhost',
         'PORT': '5432',
     }

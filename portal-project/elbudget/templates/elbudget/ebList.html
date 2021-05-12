@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="margin: 25px 0 10px 10px;">
+    <p>Электронный бюджет Стартовая страница</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Организация</th>
+                <th scope="col">Клиент</th>
+                <th scope="col">Ответственное лицо</th>
+                <th scope="col">Тип заявки</th>
+                <th scope="col">Время получения заявки</th>
+                <th scope="col">Номер заявки в ЭБ</th>
+                <th scope="col">Исполнитель</th>
+                <th scope="col">Результат</th>
+                <th scope="col">Комментарий</th>
+                <th scope="col">Номер исходящего письма</th>
+                <th scope="col">Дата исходящего письма</th>
+                <th scope="col">Трек-код уведомления</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for value in eblist %}
+            <tr>
+                <td scope="row">{{value.id}}</td>
+                <td>{{value.ORG_INN}}</td>
+                <td>{{value.CLIENT_ID}}</td>
+                <td>{{value.RESP_PERSONE_ID}}</td>
+                <td>{{value.REQUEST_TYPE}}</td>
+                <td>{{value.GETTING_TIME}}</td>
+                <td>{{value.NUMBER}}</td>
+                <td>{{value.EXECUTOR}}</td>
+                <td>{{value.RESULT}}</td>
+                <td>{{value.COMMENT}}</td>
+                <td>{{value.MESSAGE_NUMBER}}</td>
+                <td>{{value.MESSAGE_DATA}}</td>
+                <td>{{value.TRACK_NUMBER}}</td>
+
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+
+{% endblock %}
