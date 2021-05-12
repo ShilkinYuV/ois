@@ -13,11 +13,11 @@
      <div class="row mx-auto my-5">
     {% for el in news %}
         <div class="col">
-            <a href="{{el.id}}">
+            <a class="text-decoration-none" href="{{el.id}}">
                 <div class="col mx-auto col-md-10 my-3">
                     <img src="{{el.image_field.url}}" class="w-100 h-100">
                 </div>
-                <p class="col mx-auto col-md-10 my-3 text-white">{{el.get_title}}</p>
+                <p class="col mx-auto col-md-10 my-3" style="color: black;">{{el.get_title}}</p>
             </a>
         </div>
     {% endfor %}

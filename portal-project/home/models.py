@@ -16,7 +16,7 @@ class DutyForToday(models.Model):
 
 
  	def __str__(self):
- 		return self.date
+ 		return str(self.date)
         
  		
     	
