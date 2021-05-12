@@ -1,14 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}" />
 <br>
 <br>
 <br>
-<style type="text/css">
-    body{
-        background-color: #EDEEF0;
-    }
-</style>
 {% for el in det %}
 <div class="container" style="margin-bottom: 200px">
     <img src="{{el.image_field.url}}" class="rounded mx-auto d-block w-50 h-50">
