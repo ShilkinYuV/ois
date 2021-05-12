@@ -1,0 +1,2 @@
+id
+в логе на ftp найти по id другой message id
