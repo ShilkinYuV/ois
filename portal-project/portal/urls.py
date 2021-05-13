@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('yantar/', include('yantar.urls')),
     path('elbudget/', include('elbudget.urls')),
+    path('login/', include('accounts.urls')),
 ]
 
 if settings.DEBUG:

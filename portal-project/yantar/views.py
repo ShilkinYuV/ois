@@ -1,8 +1,10 @@
 from django.http import Http404
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required, permission_required
+
 from .models import *
 
-
+@permission_required('home.view_news', login_url="/login/")
 def yantar(request):
     admin = Adminyantar.objects.all()
     if request.method == 'POST':
