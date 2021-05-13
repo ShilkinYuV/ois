@@ -42,9 +42,7 @@
 <footer class="footer mt-auto py-1 fixed-bottom bg-dark text-white">
   <div class="container">
     <span class="text-muted">
-        {% for el in duty %}
-        <h6>Дежурные ОИС на {{el.date|date:"Y-m-d"}} каб. 105: {{el.kabinet_five}} каб. 104: {{el.kabinet_four}} </h6>
-        {% endfor %}
+        <h6>Дежурные ОИС на {{duty.date|date:"Y-m-d"}} каб. 105: {{duty.kabinet_five}} каб. 104: {{duty.kabinet_four}} </h6>
   </div>
 </footer>
 </body>
