@@ -19,36 +19,32 @@
                 <!-- <th scope="col">Номер исходящего письма</th> -->
                 <!-- <th scope="col">Дата исходящего письма</th> -->
                 <!-- <th scope="col">Трек-код уведомления</th> -->
-                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
 
-            {% for value in eblist %}
-            <tr style="{% if value.IsDEBTOR %} background-color: yellow {% endif %}">
-                <td scope="row">{{value.id}}</td>
-                <td>{{value.ORG_INN}}</td>
-                <td>{{value.CLIENT_ID}}</td>
+            <tr>
+                <td scope="row">{{ebdetails.id}}</td>
+                <td>{{ebdetails.ORG_INN}}</td>
+                <td>{{ebdetails.CLIENT_ID}}</td>
                 <!-- <td>{{value.RESP_PERSONE_ID}}</td> -->
-                <td>{{value.REQUEST_TYPE}}</td>
-                <td>{{value.GETTING_TIME}}</td>
+                <td>{{ebdetails.REQUEST_TYPE}}</td>
+                <td>{{ebdetails.GETTING_TIME}}</td>
                 <!-- <td>{{value.NUMBER}}</td> -->
-                <td>{{value.EXECUTOR}}</td>
-                <td>{{value.RESULT}}</td>
-                <td>{{value.COMMENT}}</td>
-                <!-- <td>{{value.MESSAGE_NUMBER}}</td>
-                <td>{{value.MESSAGE_DATA}}</td>
-                <td>{{value.TRACK_NUMBER}}</td> -->
-                <td><a href="{% url 'ebdetails' value.id %}" class="btn btn-dark">Подробнее</a></td>
+                <td>{{ebdetails.EXECUTOR}}</td>
+                <td>{{ebdetails.RESULT}}</td>
+                <td>{{ebdetails.COMMENT}}</td>
+                <!-- <td>{{value.MESSAGE_NUMBER}}</td> -->
+                <!-- <td>{{value.MESSAGE_DATA}}</td> -->
+                <!-- <td>{{value.TRACK_NUMBER}}</td> -->
 
             </tr>
 
-            {% endfor %}
+
         </tbody>
     </table>
 
 </div>
-
 
 
 {% endblock %}
