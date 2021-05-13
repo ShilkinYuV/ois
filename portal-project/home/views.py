@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 def home(request):
 	now = datetime.datetime.now()
 	duty = DutyForToday.objects.get(date=now)
-	print(duty.kabinet_five)
+	# print(duty.kabinet_five)
 	news = News.objects.all().order_by('-id')[:4]
 	date_dict = dict()
 	date_dict['news'] = news

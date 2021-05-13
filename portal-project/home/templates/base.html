@@ -18,7 +18,20 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="/" class="nav-link px-2 text-white"><strong>Главная</strong></a></li>
           <li><a href="#" class="nav-link px-2 text-white"><strong>Мониторинг</strong></a></li>
-          <li><a href="{% url 'elbudget' %}" class="nav-link px-2 text-white"><strong>Электронный бюджет</strong></a></li>
+
+          <li><div class="dropdown">
+            <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              Электронный бюджет
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="{% url 'elbudget' %}">Журнал</a></li>
+              <li><a class="dropdown-item" href="{% url 'createReq' %}">Добавить запись</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div></li>
+          
+          <!-- <li><a href="{% url 'elbudget' %}" class="nav-link px-2 text-white"><strong>Электронный бюджет</strong></a></li> -->
+
           <li><a href="{% url 'yantar' %}" class="nav-link px-2 text-white"><strong>Янтарь</strong></a></li>
           <li><a href="#" class="nav-link px-2 text-white"><strong>Инструкции</strong></a></li>
           <li><a href="#" class="nav-link px-2 text-white"><strong>О портале</strong></a></li>

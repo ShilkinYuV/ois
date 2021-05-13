@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="margin: 25px 0 10px 10px;">
-    <p>Электронный бюджет Стартовая страница</p>
-
+<div style="margin: 25px 0 30px 10px;">
+    <!-- <a href="{% url 'createReq' %}" class="btn btn-dark">Создать запись</a> -->
     <table class="table">
         <thead>
             <tr>
@@ -39,7 +38,7 @@
                 <!-- <td>{{value.MESSAGE_NUMBER}}</td>
                 <td>{{value.MESSAGE_DATA}}</td>
                 <td>{{value.TRACK_NUMBER}}</td> -->
-                <td><a href="{% url 'ebdetails' value.id %}" class="btn btn-dark">Подробнее</a></td>
+                <td><a href="{% url 'updateReq' value.id %}" class="btn btn-dark">Подробнее</a></td>
 
             </tr>
 
