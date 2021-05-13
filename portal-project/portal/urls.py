@@ -24,6 +24,7 @@ urlpatterns = [
     path('yantar/', include('yantar.urls')),
     path('elbudget/', include('elbudget.urls')),
     path('login/', include('accounts.urls')),
+    path('logout/', include('accounts.urls')),
 ]
 
 if settings.DEBUG:

@@ -24,15 +24,16 @@
           <li><a href="#" class="nav-link px-2 text-white"><strong>О портале</strong></a></li>
         </ul>
 
-        <li class="nav-link text-white navbar-right"><strong>{{ user.first_name }} {{ user.last_name }}</strong></li>
-
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
           <input type="search" class="form-control form-control-dark" placeholder="Поиск..." aria-label="Search">
         </form>
-
+        <li class="nav-link text-white navbar-right"><strong>{{ user.first_name }} {{ user.last_name }}</strong></li>
+        {% if user.username %}
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2"><strong>Войти</strong></button>
+          <a class="text-white text-decoration-none" href="{% url 'account:logout' %}">Выйти</a>
         </div>
+        {% endif %}
+
       </div>
     </div>
   </header>
