@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 @permission_required('home.view_news', login_url="/login/")
 def home(request):
 	now = datetime.datetime.now()
-	duty = DutyForToday.objects.get(date=now)
+	duty = DutyForToday.objects.filter(date=now)
 	# print(duty.kabinet_five)
 	news = News.objects.all().order_by('-id')[:4]
 	date_dict = dict()
