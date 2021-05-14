@@ -11,4 +11,10 @@ class EbRequestForm(ModelForm):
 
         widgets = {
             'ADDED_ROLES':forms.CheckboxSelectMultiple(),
+            'GETTING_TIME': forms.DateInput(attrs={
+                'type': 'date'
+            }),
+            'MESSAGE_DATA': forms.DateInput(attrs={
+                'type': 'date'
+            }),
         }

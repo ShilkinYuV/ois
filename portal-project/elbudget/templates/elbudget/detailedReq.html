@@ -1,11 +1,79 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load crispy_forms_tags %}
 {% block content %}
 <div class="container" style="margin: 25px 10px 40px 10px;">
     <form action="" method="POST" enctype="multipart/form-data" class="row g-3">
         {% csrf_token %}
-        {{ ebdetails | crispy }}
+        <div class="fieldWrapper">
+            {{ EbReqForm.ORG_INN.errors }}
+            <label for="{{ EbReqForm.ORG_INN.id_for_label }}">Организация:</label>
+            {{ EbReqForm.ORG_INN }}
+          </div>
+          <div class="fieldWrapper">
+            {{ EbReqForm.CLIENT_ID.errors }}
+            <label for="{{ EbReqForm.CLIENT_ID.id_for_label }}">Клиент:</label>
+            {{ EbReqForm.CLIENT_ID }}
+          </div>
+          <div class="fieldWrapper">
+            {{ EbReqForm.RESP_PERSONE_ID.errors }}
+            <label for="{{ EbReqForm.RESP_PERSONE_ID.id_for_label }}">Ответственное лицо:</label>
+            {{ EbReqForm.RESP_PERSONE_ID }}
+          </div>
+          <div class="fieldWrapper">
+            {{ EbReqForm.GETTING_TIME.errors }}
+            <label for="{{ EbReqForm.GETTING_TIME.id_for_label }}">Время получения заявки:</label>
+            {{ EbReqForm.GETTING_TIME }}
+          </div>
+          <div class="fieldWrapper">
+            {{ EbReqForm.REQUEST_TYPE.errors }}
+            <label for="{{ EbReqForm.REQUEST_TYPE.id_for_label }}">Тип заявки:</label>
+            {{ EbReqForm.REQUEST_TYPE }}
+          </div>
+          <div class="fieldWrapper">
+            {{ EbReqForm.ADDED_ROLES.errors }}
+            <label for="{{ EbReqForm.ADDED_ROLES.id_for_label }}">Добавление полномочий:</label>
+            {{ EbReqForm.ADDED_ROLES }}
+          </div>
+          <div class="fieldWrapper">
+            {{ EbReqForm.EXECUTOR.errors }}
+            <label for="{{ EbReqForm.EXECUTOR.id_for_label }}">Исполнитель:</label>
+            {{ EbReqForm.EXECUTOR }}
+          </div>
+          <div class="fieldWrapper">
+            {{ EbReqForm.RESULT.errors }}
+            <label for="{{ EbReqForm.RESULT.id_for_label }}">Результат:</label>
+            {{ EbReqForm.RESULT }}
+          </div>
+          <div class="fieldWrapper">
+            {{ EbReqForm.NUMBER.errors }}
+            <label for="{{ EbReqForm.NUMBER.id_for_label }}">Номер заявки:</label>
+            {{ EbReqForm.NUMBER }}
+          </div>
+          <div class="fieldWrapper">
+            {{ EbReqForm.COMMENT.errors }}
+            <label for="{{ EbReqForm.COMMENT.id_for_label }}">Комментарий:</label>
+            {{ EbReqForm.COMMENT }}
+          </div>
+          <div class="fieldWrapper">
+            {{ EbReqForm.MESSAGE_NUMBER.errors }}
+            <label for="{{ EbReqForm.MESSAGE_NUMBER.id_for_label }}">Номер письма:</label>
+            {{ EbReqForm.MESSAGE_NUMBER }}
+          </div>
+          <div class="fieldWrapper">
+            {{ EbReqForm.MESSAGE_DATA.errors }}
+            <label for="{{ EbReqForm.MESSAGE_DATA.id_for_label }}">Дата письма:</label>
+            {{ EbReqForm.MESSAGE_DATA }}
+          </div>
+          <div class="fieldWrapper">
+            {{ EbReqForm.TRACK_NUMBER.errors }}
+            <label for="{{ EbReqForm.TRACK_NUMBER.id_for_label }}">Трек-код:</label>
+            {{ EbReqForm.TRACK_NUMBER }}
+          </div>
+          <div class="fieldWrapper">
+            {{ EbReqForm.IsDEBTOR.errors }}
+            <label for="{{ EbReqForm.IsDEBTOR.id_for_label }}">Является должником?:</label>
+            {{ EbReqForm.IsDEBTOR }}
+          </div>
         <input class="btn btn-success" type="submit" value="Добавить">
     </form>
 </div>

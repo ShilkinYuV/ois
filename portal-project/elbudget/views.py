@@ -20,7 +20,7 @@ def updateReq(request, pk):
         if EbReqForm.is_valid():
             EbReqForm.save()
         return redirect('elbudget')
-    return render(request, 'elbudget/detailedReq.html', {'ebdetails': EbReqForm})
+    return render(request, 'elbudget/detailedReq.html', {'EbReqForm': EbReqForm})
 
 
 def createReq(request):
