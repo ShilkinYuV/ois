@@ -16,8 +16,8 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/" class="nav-link px-2 text-white"><strong>Главная</strong></a></li>
-          <li><a href="#" class="nav-link px-2 text-white"><strong>Мониторинг</strong></a></li>
+          <li><a href="/" class="nav-link px-2 text-white">Главная</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Мониторинг</a></li>
 
           <li><div class="dropdown">
             <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,15 +32,15 @@
           
           <!-- <li><a href="{% url 'elbudget' %}" class="nav-link px-2 text-white"><strong>Электронный бюджет</strong></a></li> -->
 
-          <li><a href="{% url 'yantar' %}" class="nav-link px-2 text-white"><strong>Янтарь</strong></a></li>
-          <li><a href="#" class="nav-link px-2 text-white"><strong>Инструкции</strong></a></li>
-          <li><a href="#" class="nav-link px-2 text-white"><strong>О портале</strong></a></li>
+          <li><a href="{% url 'yantar' %}" class="nav-link px-2 text-white">Янтарь</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Инструкции</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">О портале</a></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
           <input type="search" class="form-control form-control-dark" placeholder="Поиск..." aria-label="Search">
         </form>
-        <li class="nav-link text-white navbar-right"><strong>{{ user.first_name }} {{ user.last_name }}</strong></li>
+        <li class="nav-link text-white navbar-right">{{ user.first_name }} {{ user.last_name }}</li>
         {% if user.username %}
         <div class="text-end">
           <a class="text-white text-decoration-none" href="{% url 'account:logout' %}">Выйти</a>
