@@ -13,7 +13,7 @@ def reqs(request):
 def updateReq(request, pk):
     ebdetails = EbRequest.objects.get(id=pk)
     EbReqForm = EbRequestForm(instance=ebdetails)
-
+    
     if request.method == 'POST':
         EbReqForm = EbRequestForm(
             request.POST, request.FILES, instance=ebdetails)
@@ -25,7 +25,7 @@ def updateReq(request, pk):
 
 def createReq(request):
     EbReqForm = EbRequestForm()
-
+    
     if request.method == 'POST':
         EbReqForm = EbRequestForm(request.POST, request.FILES)
         if EbReqForm.is_valid():
