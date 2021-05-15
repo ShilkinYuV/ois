@@ -13,19 +13,19 @@ def reqs(request):
 def updateReq(request, pk):
     ebdetails = EbRequest.objects.get(id=pk)
     EbReqForm = EbRequestForm(instance=ebdetails)
-
+    
     if request.method == 'POST':
         EbReqForm = EbRequestForm(
             request.POST, request.FILES, instance=ebdetails)
         if EbReqForm.is_valid():
             EbReqForm.save()
         return redirect('elbudget')
-    return render(request, 'elbudget/detailedReq.html', {'ebdetails': EbReqForm})
+    return render(request, 'elbudget/detailedReq.html', {'EbReqForm': EbReqForm})
 
 
 def createReq(request):
     EbReqForm = EbRequestForm()
-
+    
     if request.method == 'POST':
         EbReqForm = EbRequestForm(request.POST, request.FILES)
         if EbReqForm.is_valid():
