@@ -56,10 +56,6 @@ class EbRequestForm(ModelForm):
             }),
         }
 
-def clean_CLIENT_ID(self):
-    data = self.cleaned_data['CLIENT_ID']
-    if "data" in WORKER.objects.all().values('FIO'):
-        raise ValidationError("Пользователь существует")
-    return data
+
 
 
