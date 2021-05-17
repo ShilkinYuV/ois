@@ -11,8 +11,12 @@ function myFunction(){
 
         success: function(json) {
             if (json) {
-                for (var source in json) {
-                   $(".clnt").prepend("<option value='"+json[source].id+"'>"+json[source].FIO+"</option>");
+            		 $('.clnt').find('option').remove();
+            	 var data = json;
+ 				 var dataObject = JSON.parse(data);
+                for (var source in dataObject) {
+                   $(".clnt").prepend("<option value='"+dataObject[source].id+"'>"+dataObject[source].FIO+"</option>");
+                   console.log(json[source].FIO);
                 }
 
             }

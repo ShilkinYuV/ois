@@ -44,9 +44,10 @@ def change_choice(request):
         all_clients = []
         for client in WORKER.objects.filter(ORG_INN=val).values('id', 'FIO'):
             all_clients.append({'id': client['id'], 'FIO': client['FIO']})
-        queryset = WORKER.objects.filter(ORG_INN=val)
-        print(queryset)
-        print(val)
+        # queryset = WORKER.objects.filter(ORG_INN=val)
+        # print(queryset)
+        # print(val)
+        print(all_clients)
         return HttpResponse(json.dumps(all_clients), content_type="application/json")
     else:
         return HttpResponse('no')
