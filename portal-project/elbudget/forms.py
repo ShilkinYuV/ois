@@ -1,17 +1,18 @@
 from django import forms
 from django.forms import ModelForm, widgets
 
-from .models import EbRequest
+from .models import EbRequest, WORKER
 
 class EbRequestForm(ModelForm):
 
-    class Meta:
-        model = EbRequest
-        fields = '__all__'
-
-        widgets = {
+	class Meta:
+		model = EbRequest
+		fields = '__all__'
+		widgets = {
             'ORG_INN': forms.Select(attrs={
-                'class': 'form-select'
+                'class': 'form-select org', 
+                'onchange': "myFunction()"
+
             }),
             'REQUEST_TYPE': forms.Select(attrs={
                 'class': 'form-select'
@@ -36,11 +37,8 @@ class EbRequestForm(ModelForm):
                 'style': 'height: 100px'
             }),
             'CLIENT_ID': forms.Select(attrs={
-                'class': 'form-select'
+                'class': 'form-select clnt'
             }),
-            'RESP_PERSONE_ID': forms.Select(attrs={
-                'class': 'form-select'
-            }), 
             'IsDEBTOR': forms.CheckboxInput(attrs={
                 'class': 'form-check-input'
             }),

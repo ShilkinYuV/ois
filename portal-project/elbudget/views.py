@@ -2,6 +2,9 @@ from django.shortcuts import redirect, render
 from .models import *
 from .forms import EbRequestForm
 from django.contrib.auth.decorators import login_required, permission_required
+from django.http import HttpResponse
+from django.views import generic
+import json
 
 
 @permission_required('home.view_news', login_url="/login/")
@@ -32,3 +35,19 @@ def createReq(request):
             EbReqForm.save()
         return redirect('elbudget')
     return render(request, 'elbudget/newReqForm.html', {'EbReqForm': EbReqForm})
+
+
+def change_choice(request):
+    if request.method == 'GET':
+        val = request.GET["selectedValue"]
+         
+        all_clients = []
+        for client in WORKER.objects.filter(ORG_INN=val).values('id', 'FIO'):
+            all_clients.append({'id': client['id'], 'FIO': client['FIO']})
+        queryset = WORKER.objects.filter(ORG_INN=val)
+        print(queryset)
+        print(val)
+        return HttpResponse(json.dumps(all_clients), content_type="application/json")
+    else:
+        return HttpResponse('no')
+        
