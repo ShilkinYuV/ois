@@ -27,9 +27,6 @@ def updateReq(request, pk):
 
 
 def createReq(request):
-    user_last_name = request.user.last_name
-    user_first_name = request.user.first_name
-    user = user_first_name + " " + user_last_name
     EbReqForm = EbRequestForm()
     if request.method == 'POST':
         EbReqForm = EbRequestForm(request.POST, request.FILES)
@@ -47,9 +44,6 @@ def change_choice(request):
         all_clients = []
         for client in WORKER.objects.filter(ORG_INN=val).values('id', 'FIO').order_by('-FIO'):
             all_clients.append({'id': client['id'], 'FIO': client['FIO']})
-        # queryset = WORKER.objects.filter(ORG_INN=val)
-        # print(queryset)
-        # print(val)
         print(all_clients)
         return HttpResponse(json.dumps(all_clients), content_type="application/json")
     else:
