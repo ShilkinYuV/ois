@@ -28,7 +28,6 @@ class WORKER(models.Model):
     def __str__(self):
         return self.FIO
 
-
 class EbRequest(models.Model):
     RESULTS_CHOICE = [
         ('Исполнено', 'Исполнено'),

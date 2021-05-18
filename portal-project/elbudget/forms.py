@@ -4,7 +4,6 @@ from django.forms import ModelForm, widgets
 from .models import EbRequest, WORKER
 
 class EbRequestForm(ModelForm):
-
 	class Meta:
 		model = EbRequest
 		fields = '__all__'
@@ -12,10 +11,12 @@ class EbRequestForm(ModelForm):
             'ORG_INN': forms.Select(attrs={
                 'class': 'form-select org', 
                 'onchange': "myFunction()"
-
             }),
             'REQUEST_TYPE': forms.Select(attrs={
                 'class': 'form-select'
+            }),
+            'RESP_PERSONE_ID': forms.Select(attrs={
+                'class': 'form-select clnt'
             }),
             'EXECUTOR': forms.TextInput(attrs={
                 'class': 'form-control'
@@ -54,3 +55,7 @@ class EbRequestForm(ModelForm):
                 'class': 'form-control'
             }),
         }
+
+
+
+
