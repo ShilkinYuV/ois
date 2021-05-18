@@ -90,8 +90,11 @@
       <label for="{{ EbReqForm.TRACK_NUMBER.id_for_label }}" class="form-label">Трек-код:</label>
       {{ EbReqForm.TRACK_NUMBER }}
     </div>
-
+    {% if "elbudget/create-request" in request.path %}
     <input class="btn btn-success" type="submit" value="Добавить" style="margin-bottom: 30px;">
+    {% else %}
+    <input class="btn btn-success" type="submit" value="Обновить" style="margin-bottom: 30px;">
+    {% endif %}
   </form>
 </div>
 {% endblock %}

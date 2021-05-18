@@ -1,33 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<div style="margin: 25px 0 30px 10px;">
-    <!-- <a href="{% url 'createReq' %}" class="btn btn-dark">Создать запись</a> -->
+<div class="container" style="margin-top: 25px;">
+
+    <a href="{% url 'create_org' %}" class="btn btn-dark">Создать запись</a>
+
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Организация</th>
-                <th scope="col">Клиент</th>
-                <th scope="col">Тип заявки</th>
-                <th scope="col">Время получения заявки</th>
-                <th scope="col">Исполнитель</th>
-                <th scope="col">Результат</th>
-                <th scope="col">Комментарий</th>
-                <th scope="col"></th>
+                <th scope="col">Наименование организации</th>
+                <th scope="col">ИНН</th>
+                <th scope="col">Ответственные лица</th>
+                <!-- <th scope="col"></th> -->
             </tr>
         </thead>
         <tbody>
-            {% for value in eblist %}
-            <tr style="{% if value.IsDEBTOR %} background-color: yellow {% endif %}">
-                <td scope="row">{{value.id}}</td>
-                <td>{{value.ORG_INN}}</td>
-                <td>{{value.CLIENT_ID}}</td>
-                <td>{{value.REQUEST_TYPE}}</td>
-                <td>{{value.GETTING_TIME}}</td>
-                <td>{{value.EXECUTOR}}</td>
-                <td>{{value.RESULT}}</td>
-                <td>{{value.COMMENT}}</td>
-                <td><a href="{% url 'updateReq' value.id %}" class="btn btn-dark">Подробнее</a></td>
+            {% for value in orgList %}
+            <tr>
+                <td scope="row">{{value.NAME}}</td>
+                <td>{{value.INN}}</td>
+                <td>
+                    {% if value.DOC_RESP_PERSON != "" %}
+                    <a href="{% url 'view_doc' value.DOC_RESP_PERSON.path %}" style="text-decoration: none;">{{value.DOC_RESP_PERSON.name}} <img src="{% static 'media/eye.png' %}" style="width: 25px;height: 22px"></a>
+                    {% endif %}
+                </td>
+                <td></td>
             </tr>
             {% endfor %}
         </tbody>
