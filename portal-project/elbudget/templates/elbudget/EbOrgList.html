@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="container" style="margin-top: 25px;">
+<div style="margin: 30px 0 30px 10px;">
 
-    <a href="{% url 'create_org' %}" class="btn btn-dark">Создать запись</a>
+    <a href="{% url 'create_org' %}" class="btn btn-dark">Добавить новую организацию</a>
 
     <table class="table">
         <thead>
@@ -11,7 +11,7 @@
                 <th scope="col">Наименование организации</th>
                 <th scope="col">ИНН</th>
                 <th scope="col">Ответственные лица</th>
-                <!-- <th scope="col"></th> -->
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -24,7 +24,7 @@
                     <a href="{% url 'view_doc' value.DOC_RESP_PERSON.path %}" style="text-decoration: none;">{{value.DOC_RESP_PERSON.name}} <img src="{% static 'media/eye.png' %}" style="width: 25px;height: 22px"></a>
                     {% endif %}
                 </td>
-                <td></td>
+                <td><a href="{% url 'orgUpdate' value.INN %}" class="btn btn-dark">Изменить</a></td>
             </tr>
             {% endfor %}
         </tbody>

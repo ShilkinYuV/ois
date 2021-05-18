@@ -16,10 +16,14 @@
           </div>
           <div class="col-12">
             {{ ebOrgForm.DOC_RESP_PERSON.errors }}
-            <label for="{{ ebOrgForm.DOC_RESP_PERSON.id_for_label }}" class="form-label">Наименование организации:</label>
+            <label for="{{ ebOrgForm.DOC_RESP_PERSON.id_for_label }}" class="form-label">Добавить документ об ответственных лицах:</label>
             {{ ebOrgForm.DOC_RESP_PERSON }}
           </div>
-        <input class="btn btn-success" type="submit" value="Добавить" style="margin-bottom: 30px;">
+          {% if "org-list/create-org" in request.path %}
+          <input class="btn btn-success" type="submit" value="Добавить" style="margin-bottom: 30px;">
+          {% else %}
+          <input class="btn btn-success" type="submit" value="Обновить" style="margin-bottom: 30px;">
+          {% endif %}
     </form>
 </div>
 {% endblock %}
