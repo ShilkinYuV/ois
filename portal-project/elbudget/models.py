@@ -1,5 +1,5 @@
 from django.db import models
-import datetime
+from django.utils import timezone
 
 # Create your models here.
 
@@ -48,7 +48,7 @@ class EbRequest(models.Model):
     REQUEST_TYPE = models.CharField(
         max_length=25, choices=TYPE_CHOICE, default='Предоставление доступа')
     ADDED_ROLES = models.ManyToManyField(Role, blank=True)
-    GETTING_TIME = models.DateField(default=datetime.date.today(), blank=False)
+    GETTING_TIME = models.DateField(default=timezone.now, blank=False)
     NUMBER = models.CharField(max_length=25, blank=True, null=True)
     EXECUTOR = models.CharField(max_length=100, blank=True, null=True)
     RESULT = models.CharField(
