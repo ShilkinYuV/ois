@@ -27,8 +27,10 @@ def updateReq(request, pk):
 
 
 def createReq(request):
-    EbReqForm = EbRequestForm()
-    
+    user_last_name = request.user.last_name
+    user_first_name = request.user.first_name
+    user = user_last_name + " " + user_first_name
+    EbReqForm = EbRequestForm(user)
     if request.method == 'POST':
         EbReqForm = EbRequestForm(request.POST, request.FILES)
         if EbReqForm.is_valid():
