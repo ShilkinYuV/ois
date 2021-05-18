@@ -77,3 +77,25 @@ class EbOrgForm(ModelForm):
                 'class': 'form-control'
             })
         }
+
+class EbWorkerForm(ModelForm):
+    class Meta:
+        model = Worker
+        fields = "__all__"
+        widgets = {
+            'FIO': forms.TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'ORG_INN': forms.Select(attrs={
+	            'class': 'form-select clnt'
+            }),
+            'DOC_AGREEMENT': forms.FileInput(attrs={
+                'class': 'form-control'
+            }),
+            'ADDITIONAL_INFO': forms.Textarea(attrs={
+                'class': 'form-control'
+            }),
+			'RESP_PERSONE': forms.CheckboxInput(attrs={
+	            'class': 'form-check-input'
+	        })
+        }

@@ -13,12 +13,6 @@ def reqs(request):
     eblist = EbRequest.objects.all()
     return render(request, 'elbudget/EbReqList.html', {'eblist': eblist})
 
-
-def orgs(request):
-    orgList = Organization.objects.all()
-    return render(request, 'elbudget/EbOrgList.html', {'orgList': orgList})
-
-
 def updateReq(request, pk):
     ebdetails = EbRequest.objects.get(id=pk)
     user_last_name = request.user.last_name
@@ -33,7 +27,6 @@ def updateReq(request, pk):
         return redirect('elbudget')
     return render(request, 'elbudget/EbCreateUpdateReq.html', {'EbReqForm': EbReqForm})
 
-
 def createReq(request):
     print(request.path)
     user_last_name = request.user.last_name
@@ -47,6 +40,9 @@ def createReq(request):
         return redirect('elbudget')
     return render(request, 'elbudget/EbCreateUpdateReq.html', {'EbReqForm': EbReqForm})
 
+def orgs(request):
+    orgList = Organization.objects.all()
+    return render(request, 'elbudget/EbOrgList.html', {'orgList': orgList})
 
 def createOrg(request):
     ebOrgForm = EbOrgForm()
@@ -68,6 +64,29 @@ def updateOrg(request,pk):
         return redirect('org_list')
     return render(request, 'elbudget/EbCreateUpdateOrg.html', {'ebOrgForm': ebOrgForm})
 
+def workers(request):
+    ebWorkerslist = Worker.objects.all()
+    return render(request, 'elbudget/EbWorkerList.html', {'ebWorkerslist': ebWorkerslist})
+
+def updateWorker(request, pk):
+    workersList = Worker.objects.get(id=pk)
+    ebWorkerForm = EbWorkerForm(instance=workersList)
+    if request.method == 'POST':
+        ebWorkerForm = EbWorkerForm(request.POST, request.FILES, instance=workersList)
+        if ebWorkerForm.is_valid():
+            ebWorkerForm.save()
+        return redirect('workerList')
+    return render(request, 'elbudget/EbCreateUpdateWorkers.html', {'EbWorkerForm': ebWorkerForm})
+
+def createWorker(request):
+    ebWorkerForm = EbWorkerForm()
+    if request.method == 'POST':
+        ebWorkerForm = EbWorkerForm(request.POST, request.FILES)
+        if ebWorkerForm.is_valid():
+            ebWorkerForm.save()
+        return redirect('workerList')
+    return render(request, 'elbudget/EbCreateUpdateWorkers.html', {'EbWorkerForm': ebWorkerForm})
+
 def change_choice(request, pk=1):
     if request.method == 'GET':
         val = request.GET["selectedValue"]
@@ -82,7 +101,6 @@ def change_choice(request, pk=1):
         return HttpResponse(json.dumps(all_clients), content_type="application/json")
     else:
         return HttpResponse('no')
-
 
 def ViewOrgs(request, path):
     try:
