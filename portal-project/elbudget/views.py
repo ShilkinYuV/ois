@@ -75,7 +75,7 @@ def updateWorker(request, pk):
         ebWorkerForm = EbWorkerForm(request.POST, request.FILES, instance=workersList)
         if ebWorkerForm.is_valid():
             ebWorkerForm.save()
-        return redirect('elbudget')
+        return redirect('workerList')
     return render(request, 'elbudget/EbCreateUpdateWorkers.html', {'EbWorkerForm': ebWorkerForm})
 
 def createWorker(request):
@@ -84,7 +84,7 @@ def createWorker(request):
         ebWorkerForm = EbWorkerForm(request.POST, request.FILES)
         if ebWorkerForm.is_valid():
             ebWorkerForm.save()
-        return redirect('elbudget')
+        return redirect('workerList')
     return render(request, 'elbudget/EbCreateUpdateWorkers.html', {'EbWorkerForm': ebWorkerForm})
 
 def change_choice(request, pk=1):
