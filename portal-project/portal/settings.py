@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'elbudget.apps.ElbudgetConfig',
     'crispy_forms',
     'accounts.apps.AccountsConfig',
+    'manuals.apps.ManualsConfig',
 ]
 
 MIDDLEWARE = [

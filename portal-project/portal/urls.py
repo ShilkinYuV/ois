@@ -26,6 +26,7 @@ urlpatterns = [
     path('elbudget/', include('elbudget.urls')),
     path('login/', include('accounts.urls')),
     path('logout/', include('accounts.urls')),
+    path('manuals/', include('manuals.urls')),
 ]
 
 if settings.DEBUG:
