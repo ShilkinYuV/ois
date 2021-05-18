@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <form action="" method="POST" enctype="multipart/form-data" class="row g-3" style="margin-top: 25px;">
+        {% csrf_token %}
+        <div class="col-12">
+            {{ EbWorkerForm.FIO.errors }}
+            <label for="{{ EbWorkerForm.FIO.id_for_label }}" class="form-label">ФИО:</label>
+            {{ EbWorkerForm.FIO }}
+          </div>
+          <div class="col-12">
+            {{ EbWorkerForm.ORG_INN.errors }}
+            <label for="{{ EbWorkerForm.ORG_INN.id_for_label }}" class="form-label">Наименование организации:</label>
+            {{ EbWorkerForm.ORG_INN }}
+          </div>
+          <div class="col-12">
+            {{ EbWorkerForm.DOC_AGREEMENT.errors }}
+            <label for="{{ EbWorkerForm.DOC_AGREEMENT.id_for_label }}" class="form-label">Документ об ответственных лицах:</label>
+            {{ EbWorkerForm.DOC_AGREEMENT }}
+          </div>
+          <div class="col-md-6 form-check form-switch" style="margin-left: 8px;">
+            {{ EbWorkerForm.RESP_PERSONE.errors }}
+            <label for="{{ EbWorkerForm.RESP_PERSONE.id_for_label }}" class="form-label">Является ответственным лицом?</label>
+            {{ EbWorkerForm.RESP_PERSONE }}
+          </div>
+          <div class="col-12">
+            {{ EbWorkerForm.ADDITIONAL_INFO.errors }}
+            <label for="{{ EbWorkerForm.ADDITIONAL_INFO.id_for_label }}" class="form-label">Дополнительная информация:</label>
+            {{ EbWorkerForm.ADDITIONAL_INFO }}
+          </div>
+          
+          {% if "workers/create-worker/" in request.path %}
+          <input class="btn btn-success" type="submit" value="Добавить" style="margin-bottom: 30px;">
+          {% else %}
+          <input class="btn btn-success" type="submit" value="Обновить" style="margin-bottom: 30px;">
+          {% endif %}
+    </form>
+</div>
+{% endblock %}

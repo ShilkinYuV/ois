@@ -9,6 +9,9 @@ urlpatterns = [
 	path('journal/create-request/change_choice/',views.change_choice, name='change_choice'),
 	path('org-list/create-org/',views.createOrg, name='create_org'),
 	path('org-list/',views.orgs, name='org_list'),
-	path('org-list/diteailed/<str:pk>/',views.updateOrg, name='orgUpdate'),
+	path('org-list/detailed/<str:pk>/',views.updateOrg, name='orgUpdate'),
 	path('view-doc/<str:path>/',views.ViewOrgs, name='view_doc'),
+	path('workers', views.workers, name='workerList'),
+	path('workers/create-worker/', views.createWorker, name='workerCreate'),
+	path('workers/detailed/<str:pk>/', views.updateWorker, name='workerUpdate'),
 ]		
