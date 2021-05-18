@@ -33,7 +33,15 @@
           <!-- <li><a href="{% url 'elbudget' %}" class="nav-link px-2 text-white"><strong>Электронный бюджет</strong></a></li> -->
 
           <li><a href="{% url 'yantar' %}" class="nav-link px-2 text-white">Янтарь</a></li>
-          <li><a href="{% url 'manuals' %}" class="nav-link px-2 text-white">Инструкции</a></li>
+          <li><div class="dropdown">
+            <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              Инструкции
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="{% url 'manuals' %}">Инструкции</a></li>
+              <li><a class="dropdown-item" href="#">Что то еще..</a></li>
+            </ul>
+          </div></li>
           <li><a href="#" class="nav-link px-2 text-white">О портале</a></li>
         </ul>
 
