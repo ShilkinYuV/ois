@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-  <script type="text/javascript" src={% static "js/ajax.js" %}></script>
-  <script type="text/javascript" src={% static "js/jquery-3.6.0.min.js" %} ></script>
-<div class="container" >
+<script type="text/javascript" src={% static "js/ajax.js" %}></script>
+<script type="text/javascript" src={% static "js/jquery-3.6.0.min.js" %}></script>
+<div class="container">
   <form action="" method="POST" enctype="multipart/form-data" class="row g-3">
     {% csrf_token %}
     <div class="col-12" style="margin-top: 50px;">
@@ -24,7 +24,7 @@
       {{ EbReqForm.RESP_PERSONE_ID }}
     </div>
 
-    
+
     <div class="col-md-6">
       {{ EbReqForm.GETTING_TIME.errors }}
       <label for="{{ EbReqForm.GETTING_TIME.id_for_label }}" class="form-label">Время получения заявки:</label>

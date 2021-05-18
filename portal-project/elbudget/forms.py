@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm, widgets
 
-from .models import EbRequest, WORKER
+from .models import *
 
 class EbRequestForm(ModelForm):
 	def __init__(self, user, *args, **kwargs):
@@ -62,10 +62,18 @@ class EbRequestForm(ModelForm):
 	        }),
 	    }
 
-
-
-
-
-
-
-
+class EbOrgForm(ModelForm):
+    class Meta:
+        model = Organization
+        fields = "__all__"
+        widgets = {
+            'INN': forms.TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'NAME': forms.TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'DOC_RESP_PERSON': forms.FileInput(attrs={
+                'class': 'form-control'
+            })
+        }

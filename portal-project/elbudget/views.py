@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from .models import *
-from .forms import EbRequestForm
+from .forms import *
 from django.contrib.auth.decorators import login_required, permission_required
 from django.http import HttpResponse
 from django.views import generic
@@ -10,7 +10,7 @@ import json
 @permission_required('home.view_news', login_url="/login/")
 def reqs(request):
     eblist = EbRequest.objects.all()
-    return render(request, 'elbudget/ebList.html', {'eblist': eblist})
+    return render(request, 'elbudget/EbReqList.html', {'eblist': eblist})
 
 
 def updateReq(request, pk):
@@ -23,7 +23,7 @@ def updateReq(request, pk):
         if EbReqForm.is_valid():
             EbReqForm.save()
         return redirect('elbudget')
-    return render(request, 'elbudget/detailedReq.html', {'EbReqForm': EbReqForm})
+    return render(request, 'elbudget/EbDetailedReq.html', {'EbReqForm': EbReqForm})
 
 
 def createReq(request):
@@ -36,16 +36,29 @@ def createReq(request):
         if EbReqForm.is_valid():
             EbReqForm.save()
         return redirect('elbudget')
+    return render(request, 'elbudget/EbCreateReq.html', {'EbReqForm': EbReqForm})
 
-    return render(request, 'elbudget/newReqForm.html', {'EbReqForm': EbReqForm})
+def createOrg(request):
+    # EbReqForm = EbRequestForm()
+    ebOrgForm = EbOrgForm()
+    if request.method == 'POST':
+        ebOrgForm = EbOrgForm(request.POST, request.FILES)
+        if ebOrgForm.is_valid():
+            ebOrgForm.save()
+        return redirect('elbudget')
+    return render(request, 'elbudget/EbCreateORG.html', {'ebOrgForm': ebOrgForm})
 
 
-def change_choice(request):
+def change_choice(request,pk):
     if request.method == 'GET':
         val = request.GET["selectedValue"]
+         
         all_clients = []
-        for client in WORKER.objects.filter(ORG_INN=val).values('id', 'FIO').order_by('-FIO'):
+        for client in Worker.objects.filter(ORG_INN=val).values('id', 'FIO'):
             all_clients.append({'id': client['id'], 'FIO': client['FIO']})
+        # queryset = WORKER.objects.filter(ORG_INN=val)
+        # print(queryset)
+        # print(val)
         print(all_clients)
         return HttpResponse(json.dumps(all_clients), content_type="application/json")
     else:
