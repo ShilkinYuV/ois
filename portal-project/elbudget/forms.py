@@ -1,15 +1,16 @@
 from django import forms
 from django.forms import ModelForm, widgets
 
-from .models import EbRequest, WORKER
+from .models import *
+
 
 class EbRequestForm(ModelForm):
-	class Meta:
-		model = EbRequest
-		fields = '__all__'
-		widgets = {
+    class Meta:
+        model = EbRequest
+        fields = '__all__'
+        widgets = {
             'ORG_INN': forms.Select(attrs={
-                'class': 'form-select org', 
+                'class': 'form-select org',
                 'onchange': "myFunction()"
             }),
             'REQUEST_TYPE': forms.Select(attrs={
@@ -43,8 +44,8 @@ class EbRequestForm(ModelForm):
             'IsDEBTOR': forms.CheckboxInput(attrs={
                 'class': 'form-check-input'
             }),
-            'ADDED_ROLES':forms.CheckboxSelectMultiple(attrs={
-                'style':'list-style-type: none'
+            'ADDED_ROLES': forms.CheckboxSelectMultiple(attrs={
+                'style': 'list-style-type: none'
             }),
             'GETTING_TIME': forms.DateInput(attrs={
                 'type': 'date',
@@ -57,5 +58,18 @@ class EbRequestForm(ModelForm):
         }
 
 
-
-
+class EbOrgForm(ModelForm):
+    class Meta:
+        model = Organization
+        fields = "__all__"
+        widgets = {
+            'INN': forms.TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'NAME': forms.TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'DOC_RESP_PERSON': forms.FileInput(attrs={
+                'class': 'form-control'
+            })
+        }
