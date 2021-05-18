@@ -27,7 +27,10 @@ def updateReq(request, pk):
 
 
 def createReq(request):
-    EbReqForm = EbRequestForm()
+    user_last_name = request.user.last_name
+    user_first_name = request.user.first_name
+    user = user_last_name + " " + user_first_name
+    EbReqForm = EbRequestForm(user)
     if request.method == 'POST':
         EbReqForm = EbRequestForm(request.POST, request.FILES)
         if EbReqForm.is_valid():
@@ -40,7 +43,6 @@ def createReq(request):
 def change_choice(request):
     if request.method == 'GET':
         val = request.GET["selectedValue"]
-         
         all_clients = []
         for client in WORKER.objects.filter(ORG_INN=val).values('id', 'FIO').order_by('-FIO'):
             all_clients.append({'id': client['id'], 'FIO': client['FIO']})
