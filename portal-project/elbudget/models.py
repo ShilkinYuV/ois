@@ -1,8 +1,6 @@
 from django.db import models
 import datetime
-
 # Create your models here.
-
 
 class ORGANIZATION(models.Model):
     INN = models.CharField(max_length=25, primary_key=True, unique=True)
